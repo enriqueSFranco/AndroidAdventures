@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AndroidAdventures</string>
+    <string name="female">female</string>
+    <string name="male">male</string>
+    <string name="height">height</string>
+    <string name="calculate">calculate</string>
+    <string name="weight">weight</string>
+    <string name="age">age</string>
+
+    <string name="app_name_todo">Todo List</string>
+    <string name="todo_categories">Categorias</string>
+    <string name="personal_category">Personal</string>
+    <string name="business_category">Negocio</string>
+    <string name="other_category">Otro</string>
+</resources>
