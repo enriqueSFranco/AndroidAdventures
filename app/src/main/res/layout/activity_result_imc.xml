@@ -74,7 +74,7 @@
         android:id="@+id/btn_recalculate"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="@color/violet_700"
+        android:background="@color/design_default_color_primary_dark"
         android:text="re-calcular"
         android:textColor="@color/white"
         android:textSize="28sp"

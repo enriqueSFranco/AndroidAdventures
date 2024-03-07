@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.kikesf.androidadventures.imcApp.IMCActivity
-import com.kikesf.androidadventures.todoApp.TodoActivity
+import com.kikesf.androidadventures.superheroApp.SuperHeroListActivity
+import com.kikesf.androidadventures.todoApp.TaskActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var btnIMCApp: Button
     private lateinit var btnTodoApp: Button
+    private lateinit var btnSuperheroeApp: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,13 +22,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initComponents(): Unit {
-        btnIMCApp = findViewById<Button>(R.id.app_body_mass_check)
-        btnTodoApp = findViewById<Button>(R.id.btn_todo)
+        btnIMCApp = findViewById(R.id.app_body_mass_check)
+        btnTodoApp = findViewById(R.id.btn_todo)
+        btnSuperheroeApp = findViewById(R.id.btn_super_heroe_app)
     }
 
     private fun initListener(): Unit {
         btnIMCApp.setOnClickListener { navigateToActivity(IMCActivity::class.java) }
-        btnTodoApp.setOnClickListener { navigateToActivity(TodoActivity::class.java)}
+        btnTodoApp.setOnClickListener { navigateToActivity(TaskActivity::class.java)}
+        btnSuperheroeApp.setOnClickListener { navigateToActivity(SuperHeroListActivity::class.java) }
     }
 
     private fun navigateToActivity(activityClass: Class<*>): Unit {

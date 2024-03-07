@@ -1,3 +1,3 @@
 package com.kikesf.androidadventures.todoApp.models
 
-data class Todo(val id: String, val descrition: String, val isComplete: Boolean)
+data class Task(val id: String, val descrition: String, val category: TaskCategory, val isComplete: Boolean)
