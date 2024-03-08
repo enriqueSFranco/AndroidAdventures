@@ -8,8 +8,8 @@
     <string name="age">age</string>
 
     <string name="app_name_todo">Todo List</string>
-    <string name="todo_categories">Categorias</string>
+    <string name="todo_categories">Categories</string>
     <string name="personal_category">Personal</string>
-    <string name="business_category">Negocio</string>
-    <string name="other_category">Otro</string>
+    <string name="business_category">Business</string>
+    <string name="other_category">Other</string>
 </resources>
