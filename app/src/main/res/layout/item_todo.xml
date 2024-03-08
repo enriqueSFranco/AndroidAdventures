@@ -1,39 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginVertical="4dp"
+    android:id="@+id/cv_wrapper_task"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="12dp"
+    app:cardCornerRadius="16dp"
     >
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_todo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-        <LinearLayout
-            android:paddingVertical="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <CheckBox
-                android:id="@+id/cb_todo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/tv_todo_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="hacer ejercicio"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="22sp"
-                />
-        </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="16dp">
+
+        <CheckBox
+            android:id="@+id/cb_todo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_task_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:text="hacer ejercicio" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
