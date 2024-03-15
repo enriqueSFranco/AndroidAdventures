@@ -67,13 +67,13 @@ class TaskActivity : AppCompatActivity() {
 
     private fun initUI() {
         // RECYCLER TASK CATEGORIES
-        taskCategoryAdapter = TaskCategoryAdapter(categories)
+        taskCategoryAdapter = TaskCategoryAdapter(categories) {onSelectedCategory(it)}
         rvCategories.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCategories.adapter = taskCategoryAdapter
 
         // RECYCLER TASK
-        taskAdapter = TaskAdapter(tasks)
+        taskAdapter = TaskAdapter(tasks) { position -> onSelectedTask(position) }
         rvTasks.layoutManager =
             LinearLayoutManager(this) // por default la layout manager es vertical
         rvTasks.adapter = taskAdapter
@@ -110,6 +110,17 @@ class TaskActivity : AppCompatActivity() {
         }
 
         dialog.show()
+    }
+
+    private fun onSelectedCategory(index: Int) {
+        categories[index].isSelected = !categories[index].isSelected
+        // notificando al adapter que se va a seleccionar una categoria
+        taskCategoryAdapter.notifyItemChanged(index)
+    }
+
+    private fun onSelectedTask(index: Int) {
+        tasks[index].isComplete = !tasks[index].isComplete
+        updateTasksList()
     }
 
     private fun updateTasksList() {
