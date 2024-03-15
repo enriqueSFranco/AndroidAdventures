@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kikesf.androidadventures.R
 import com.kikesf.androidadventures.todoApp.models.TaskCategory
 
-class TaskCategoryAdapter(private val categories: List<TaskCategory>) :
+class TaskCategoryAdapter(private val categories: List<TaskCategory>, private val onSelectedCategory: (Int) -> Unit) :
     RecyclerView.Adapter<TaskCategoryViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -19,7 +19,7 @@ class TaskCategoryAdapter(private val categories: List<TaskCategory>) :
     }
 
     override fun onBindViewHolder(holder: TaskCategoryViewHolder, position: Int) {
-        holder.render(categories[position])
+        holder.render(categories[position], onSelectedCategory)
     }
 
     override fun getItemCount(): Int = categories.size

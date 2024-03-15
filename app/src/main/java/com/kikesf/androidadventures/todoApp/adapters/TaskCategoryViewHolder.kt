@@ -13,21 +13,30 @@ class TaskCategoryViewHolder(view: View): RecyclerView.ViewHolder(view) {
     var typeTaskCategory = view.findViewById<TextView>(R.id.tv_todo_category_type)
     var wrapperTaskCategory: CardView = view.findViewById(R.id.cv_wrapper_task_category)
 
-    fun render(category: TaskCategory) {
+    fun render(category: TaskCategory, onSelectedCategory: (Int) -> Unit) {
+
+        val color = if (category.isSelected) {
+            R.color.purple_700
+        } else {
+            R.color.purple_500
+        }
+
+        itemView.setOnClickListener { onSelectedCategory(layoutPosition) }
+
         val categoryInfo = getCatetory(category)
 
         typeTaskCategory.text = categoryInfo.type
-        wrapperTaskCategory.setBackgroundColor(ContextCompat.getColor(wrapperTaskCategory.context, categoryInfo.color))
+       wrapperTaskCategory.setBackgroundColor(ContextCompat.getColor(wrapperTaskCategory.context, color))
     }
 
     private fun getCatetory(category: TaskCategory): CategoryInfo {
         val taskCategory = when(category) {
-            TaskCategory.PERSONAL -> CategoryInfo("Personal", R.color.indigo_400)
-            TaskCategory.BUSINESS -> CategoryInfo("Business", R.color.violet_400)
-            TaskCategory.OTHER -> CategoryInfo("Other", R.color.fuchsia_400)
+            TaskCategory.PERSONAL -> CategoryInfo("Personal")
+            TaskCategory.BUSINESS -> CategoryInfo("Business")
+            TaskCategory.OTHER -> CategoryInfo("Other")
         }
         return taskCategory
     }
 }
 
-data class CategoryInfo(val type: String, @ColorRes val color: Int)
+data class CategoryInfo(val type: String)
