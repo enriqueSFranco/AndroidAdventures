@@ -1,6 +1,6 @@
 package com.kikesf.androidadventures.todoApp.models
 
-sealed class TaskCategory() {
+sealed class TaskCategory(var isSelected: Boolean = true) {
     data object PERSONAL: TaskCategory()
     data object BUSINESS: TaskCategory()
     data object OTHER: TaskCategory()
