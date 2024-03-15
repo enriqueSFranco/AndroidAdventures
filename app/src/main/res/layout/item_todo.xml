@@ -17,7 +17,7 @@
         android:paddingVertical="16dp">
 
         <CheckBox
-            android:id="@+id/cb_todo"
+            android:id="@+id/cb_task"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
