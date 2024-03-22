@@ -14,19 +14,21 @@ class TaskCategoryViewHolder(view: View): RecyclerView.ViewHolder(view) {
     var wrapperTaskCategory: CardView = view.findViewById(R.id.cv_wrapper_task_category)
 
     fun render(category: TaskCategory, onSelectedCategory: (Int) -> Unit) {
+        itemView.setOnClickListener { onSelectedCategory(layoutPosition) }
 
         val color = if (category.isSelected) {
             R.color.purple_700
         } else {
             R.color.purple_500
         }
+        wrapperTaskCategory.setCardBackgroundColor(ContextCompat.getColor(wrapperTaskCategory.context ,color))
 
         itemView.setOnClickListener { onSelectedCategory(layoutPosition) }
 
         val categoryInfo = getCatetory(category)
 
         typeTaskCategory.text = categoryInfo.type
-       wrapperTaskCategory.setBackgroundColor(ContextCompat.getColor(wrapperTaskCategory.context, color))
+        wrapperTaskCategory.setCardBackgroundColor(ContextCompat.getColor(wrapperTaskCategory.context, color))
     }
 
     private fun getCatetory(category: TaskCategory): CategoryInfo {

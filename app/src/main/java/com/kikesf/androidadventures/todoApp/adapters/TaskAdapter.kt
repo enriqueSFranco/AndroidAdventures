@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kikesf.androidadventures.R
 import com.kikesf.androidadventures.todoApp.models.Task
 
-class TaskAdapter(private val tasks: List<Task>, private val onSelectedTask: (Int) -> Unit) :
+class TaskAdapter(var tasks: List<Task>, private val onSelectedTask: (Int) -> Unit) :
     RecyclerView.Adapter<TaskViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val view = LayoutInflater.from(parent.context)

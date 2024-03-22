@@ -124,6 +124,9 @@ class TaskActivity : AppCompatActivity() {
     }
 
     private fun updateTasksList() {
+        val selectedCategories: List<TaskCategory> = categories.filter { it.isSelected }
+        val newTasks = tasks.filter { selectedCategories.contains(it.category) }
+        taskAdapter.tasks = newTasks
         taskAdapter.notifyDataSetChanged()
     }
 }
