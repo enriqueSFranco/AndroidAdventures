@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.AndroidAdventures" parent="Theme.Material3.DynamicColors.Light" />
+    <style name="Theme.AndroidAdventures" parent="Theme.Material3.DayNight.NoActionBar" />
 
     <!-- Theme Todo App -->
     <style name="Theme.todoApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
