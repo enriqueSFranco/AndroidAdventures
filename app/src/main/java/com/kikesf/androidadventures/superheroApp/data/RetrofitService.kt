@@ -1,17 +1,21 @@
 package com.kikesf.androidadventures.superheroApp.data
 
+import com.kikesf.androidadventures.superheroApp.data.model.SuperHeroResponse
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface RetrofitService {
-    @GET("v1/public/characters?ts=1&apiKey=1342ee46b3a8207e80b268dc4b8f97a1&hash=e7538208ae63bf14cfdf1c6e4ecded44")
-    suspend fun listCharacters(
+    @GET("v1/public/characters?name={name}")
+    suspend fun getCharacters(
+        @Path("name") superheroName: String,
         @Query("ts") timestamp: String,
         @Query("apiKey") apiKey: String,
         @Query("hash") hash: String
-    )
+    ): Response<SuperHeroResponse>
 }
 
 object RetrofitServiceFactory {

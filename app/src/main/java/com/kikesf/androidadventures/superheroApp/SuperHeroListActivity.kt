@@ -1,6 +1,7 @@
 package com.kikesf.androidadventures.superheroApp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.widget.SearchView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +9,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.kikesf.androidadventures.R
 import com.kikesf.androidadventures.databinding.ActivitySuperHeroListBinding
+import com.kikesf.androidadventures.superheroApp.data.RetrofitService
+import com.kikesf.androidadventures.superheroApp.data.model.SuperHeroResponse
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 
 class SuperHeroListActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySuperHeroListBinding
@@ -42,7 +50,29 @@ class SuperHeroListActivity : AppCompatActivity() {
         })
     }
 
-    private fun searchBySuperHeroName(query: String) {}
+    private fun searchBySuperHeroName(query: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response: Response<SuperHeroResponse> =
+                retrofit.create(RetrofitService::class.java).getCharacters(
+                    query,
+                    "1",
+                    "1342ee46b3a8207e80b268dc4b8f97a1",
+                    "e7538208ae63bf14cfdf1c6e4ecded44"
+                )
+
+            if (response.isSuccessful) {
+                Log.i("kikedev", "success :)")
+                val data: SuperHeroResponse? = response.body()
+
+                if (data != null) {
+                    Log.i("kikedev", data.toString())
+                }
+            } else {
+                Log.i("kikedev", "error :(")
+            }
+        }
+        // IO -> Hilo secundario para peticiones http
+    }
 
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
