@@ -2,9 +2,9 @@ package com.kikesf.androidadventures.superheroApp.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Stories(
+data class Comics(
     @SerializedName("available") val available: Int,
     @SerializedName("collectionURI") val collectionURI: String,
-    @SerializedName("items") val items: List<StoriesItem>,
-    @SerializedName("returned") val returned: Int
+    @SerializedName("items") val items: List<ComicsItem>,
+    @SerializedName("returned") val returned: Int,
 )
